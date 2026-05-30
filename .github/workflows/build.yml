@@ -322,23 +322,6 @@ jobs:
           cd IAmYouTube
           make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
           mv packages/*.deb ${{ github.workspace }}/imyt.deb
-
-      - name: Build YTVideoErrorAlert
-        if: ${{ inputs.ytvid }}
-        run: |
-          cd YTVideoErrorAlert
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/ytvideoerror.deb
-
-      - name: Download i-am-not-youtube
-        run: wget "https://github.com/ahmtydn/i-am-not-youtube/releases/download/v1.0.1/ianyt.1.0.1.deb"
-
-      # - name: Build VolumeBoostYT
-      #   if: ${{ inputs.volboost }}
-      #   run: |
-      #     cd VolumeBoostYT
-      #     make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless ARCHS=arm64
-      #     mv packages/*.deb ${{ github.workspace }}/volboostyt.deb
           
       - name: Inject Tweaks Into IPA
         run: |
